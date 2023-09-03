@@ -1,0 +1,113 @@
+Binary Tree-Each node has zero,one or two child.
+
+Terminologies-->
+Size-Number of Nodes
+
+Height- The height of a node is the maximum number of nodes between the node and the leaf node.
+
+Level-The number of nodes between the root node and the given node.
+
+Degree-Number of child for a Node.
+
+
+
+Types of binary tree-
+1)Complete binary tree-
+   -ALL level except the last is full.
+   -Last level is filled from left to right.
+
+2)Full Binary tree/strict
+  -Each node has either zero or two children.    //Used in compression techniques
+
+3)Perfect Binary tree-
+  -All levels are full.
+  -Leaf Nodes are at the same level 
+
+4)Height Balanced
+  -Average height is O(logN)
+
+5)Skewed Binary Tree-
+  -Each node has one child.
+  -Height is O(N)----Similar to linked list.
+
+6)Ordered Binary Tree-
+  -Every Node has a property  ex-BST
+
+Properties-
+1)For a perfect binary tree if height=h  -->number of nodes=2^(h+1) -1
+2)For a perfect binary tree,number of leaf nodes=2^height
+3)For a binary tree,if number of nodes=N --->atlaest log(N+1) levels are their atleast.
+4)For a strict binary tree,if N leaf nodes ---> number of internal nodes=N-1
+5)Number of leaf nodes = 1+ external nodes with two children(not root)
+
+
+Implementation-
+1)linked representation     2)Sequential--using an array(size issues,will be used for heaps
+
+
+
+Binary tree implementation---->>>
+
+
+private class Node{            //class
+       Node right;
+       Node left;
+       int val;
+
+       public Node(int val) {
+           this.val=val;
+       }
+
+
+
+public void populate(Scanner scanner){
+         System.out.println("Enter the root node:");
+         int val=scanner.nextInt();
+          root=new Node(val);
+          populate(scanner,root);    call the function with two argumnets
+    }
+    public void populate(Scanner scanner,Node node){
+        System.out.println("Do you want to enter to the left of:"+node.val); 
+        boolean left=scanner.nextBoolean();   
+        if(left){  
+          //checks if left node to be added,if false moves out of the if//
+            System.out.println("Enter the number to be added to the left of"+node.val);
+            int value=scanner.nextInt();
+            node.left= new Node(value);
+            populate(scanner,node.left);   recursive call
+        }
+
+        System.out.println("Do you want to enter to the right of:"+node.val);
+
+        boolean right=scanner.nextBoolean();
+        if(right){
+       //checks if right node to be added,if false moves out of the if//
+            System.out.println("Enter the number to be added to the right of"+node.val);
+            int value=scanner.nextInt();
+            node.right= new Node(value);
+            populate(scanner,node.right);
+        }
+
+    } 
+
+  
+Balanced tree-height difference should be always equal to less than 1.
+
+Binary Search tree-
+less than root/node-add to to the left         greater than root/node-add to the right
+                     15
+                 10      20
+               5    12
+Insert,Search--O(logN)
+
+
+
+
+           
+
+
+
+
+
+
+
