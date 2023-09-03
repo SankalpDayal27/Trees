@@ -98,7 +98,8 @@ less than root/node-add to to the left         greater than root/node-add to the
                      15
                  10      20
                5    12
-Insert,Search--O(logN)
+Insert,Search,Delete--O(logN)---height of tree
+
 
 
 
