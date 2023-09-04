@@ -101,6 +101,71 @@ less than root/node-add to to the left         greater than root/node-add to the
 Insert,Search,Delete--O(logN)---height of tree
 
 
+#BST implementation
+
+public void insert(int val){
+
+       root=insert(val,root);
+    }
+    public Node insert(int val,Node node){
+        if(node==null){
+            node=new Node(val);
+            return node;
+        }
+        if(val<node.val){
+            node.left=insert(val,node.left);
+        }
+        if(val>node.val){
+            node.right=insert(val,node.right);
+        }
+     return node;
+    }
+
+
+Traversal Methods-
+1)Pre-order
+Node-->LeftNode-->RightNode
+  ex-     10               Display:- 10--->20--->15-->1--->12
+       20     12
+   15      1
+Used for making a copy or evaluating math operations or serialization
+
+2)In-order
+LeftNode--->Node--->RightNode
+ ex-      10                Display:-  15-->20-->1-->10--->12 
+        20    12
+    15     1
+For a binary search tree,visit node in sorted manner
+  ex-     10               Display:-3-->6-->7-->10-->13-->20
+       6        20
+     3   7    13
+
+3)Post-Order
+LeftNode--->RightNode--->Node
+ ex-       10             Display:-15-->1-->20-->12--->10
+       20      12
+    15    1
+Used for deleting binary tree
+
+
+#in-order IMPLEMENTATION-->
+
+ public void in_order(){
+        in_order(root);
+    }
+    public void in_order(Node node){
+        if(node==null){
+            return;
+        }
+        in_order(node.left);
+        System.out.println(node.val);
+        in_order(node.right);
+
+    }
+
+
+
+
 
 
 
